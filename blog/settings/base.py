@@ -7,8 +7,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/3.0/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/3.0/ref/settings/
-"""
+https://docs.djangoproject.com/en/3.0/ref/settings/"""
 
 import os
 
@@ -23,8 +22,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '+ed@0d^gow-bk0&w6kr-sj0l$1^f6gh-mr^35+1-3__8syc+!5'
 
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -34,6 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.post',
+    'apps.usuarios',
 ]
 
 MIDDLEWARE = [
