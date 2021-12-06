@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'apps.post',
     'import_export',
     'apps.usuarios',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +67,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blog.wsgi.application'
 
-
+#Configuración de CKEDITOR
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        
+    },
+}
 
 
 # Password validation

@@ -14,6 +14,6 @@ class CategoriaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     resource_class = CategoriaResource
 
 admin.site.register(Categoria,CategoriaAdmin)
-
+admin.site.register(Post)
 
 
