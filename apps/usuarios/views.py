@@ -8,4 +8,5 @@ def registro(request):
     return render(request,'usuarios/registro.html')
 
 
-
+def publicar(request):
+    return render(request,'usuarios/publicar.html')

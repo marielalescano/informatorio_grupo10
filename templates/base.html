@@ -71,7 +71,7 @@
               href={% url 'home' %} style="padding: 10px 20px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href={% url 'post:listar_post' %}  style="padding: 10px 20px;">Publicaciones</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href={% url 'post:objetivos' %} style="padding: 10px 20px;">Objetivos</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px;">Publicar</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href={% url 'usuarios:publicar' %} style="padding: 10px 20px;">Publicar</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href={% url 'usuarios:registro' %} style="padding: 10px 20px;">Registro</a>
 </li></ul>
           </div>
@@ -82,7 +82,7 @@
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href={% url 'home' %} style="padding: 10px 20px;">Home</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href={% url 'post:listar_post' %} style="padding: 10px 20px;">Publicaciones</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href={% url 'post:objetivos' %} style="padding: 10px 20px;">Objetivos</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 10px 20px;">Publicar</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" {% url 'usuarios:publicar' %} style="padding: 10px 20px;">Publicar</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href={% url 'usuarios:registro' %} style="padding: 10px 20px;">Registro</a>
 </li></ul>
               </div>
