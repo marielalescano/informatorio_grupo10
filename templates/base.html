@@ -6,6 +6,35 @@
     <title> Grupo 10</title>
 </head>
 <body>
+
 <title>Grupo 10</title>
+      
+
+
+    <div class="menu"> 
+
+        <p>ACA VA A IR EL MENU</p>
+        <br>
+        
+        {% if user.is_authenticated %}
+            <span>WELCOME {{ user.username }}</span>
+            <a href="{% url 'logout' %}">CERRAR SESION </a>
+        {% else %}        
+            <a href="{% url 'login' %}">LOGIN</a>
+            <a href="">REGISTRO</a>
+        {% endif %}    
+            
+
+    </div>
+
+
+
+
+        {% block contenido %}
+ 
+
+ 
+        {% endblock contenido %}
+
 </body>
 </html>
