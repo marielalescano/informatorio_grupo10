@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+
+{% if objetivos %} <!-- vamos a preguntar si existen post-->
+
+  {% for obj in objetivos %}
+
+
+    <section class="u-clearfix u-section-2" id="sec-8d0b">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-border-3 u-border-grey-10 u-container-style u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <img class="u-image u-image-default u-image-1" src= {{ obj.imagen.url }} alt="" data-image-width="720" data-image-height="392">
+            <h2 class="u-align-left u-text u-text-default u-text-1"> <center>{{ obj.nombre }}</center></h2>
+            <p class="u-align-center u-text u-text-2">{{ obj.descripcion }}</p>
+            <a href="{% url 'post:listarPostObjetivos' obj.pk %}" class="u-btn u-button-style u-grey-90 u-btn-1">Ver Post</a>
+          </div>
+        </div>
+      </div>
+    </section>   
+
+{% endfor %}
+
+    {% else %}
+
+      <h2> No existen Objetivos</h2>
+
+{% endif %}
+
+{% endblock contenido %}

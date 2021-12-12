@@ -1,40 +1,132 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html>
-<head>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Grupo 10</title>
-</head>
-<body>
+    <meta name="keywords" content="Agile, Get Right Solution&nbsp;for your Business, Marketing, Sales and Marketing, Let&amp;apos;s Create Amazing, +500, 800, +300, Doing The Right Thing, At The Right Time, Follow Us">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Home</title>
+{% block estilo %}{% endblock estilo %}
 
-<title>Grupo 10</title>
-      
-
-
-    <div class="menu"> 
-
-        <p>ACA VA A IR EL MENU</p>
-        <br>
-        
-        {% if user.is_authenticated %}
-            <span>WELCOME {{ user.username }}</span>
-            <a href="{% url 'logout' %}">CERRAR SESION </a>
-        {% else %}        
-            <a href="{% url 'login' %}">LOGIN</a>
-            <a href="">REGISTRO</a>
-        {% endif %}    
-            
-
-    </div>
-
-
-
-
-        {% block contenido %}
+    <link rel="stylesheet" href= {% static "css/nicepage.css" %} media="screen">
+    <link rel="stylesheet" href= {% static "css/Home.css" %} media="screen">
+    <script class="u-script" type="text/javascript" src= {% static "js/jquery.js" %} defer=""></script>
+    <script class="u-script" type="text/javascript" src= {% static "js/nicepage.js" %} defer=""></script>
+    <meta name="generator" content="Nicepage 4.1.0, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+    
+ 
+    
+    
+    <script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Home">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-white"><header class="u-header" id="sec-ed48" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""><div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="100%">
+            </colgroup>
+            <tbody class="u-table-body">
+              <tr style="height: 62px;">
+                <td class="u-border-1 u-border-white u-table-cell"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
  
 
- 
-        {% endblock contenido %}
+          {% if user.is_authenticated %}
+        <img class="u-image u-image-default u-image-1" src= {% static "img/avatar.png" %} alt="" data-image-width="720" data-image-height="720" data-href="#"<abbr title="Bienvenido {{ user.username }}"></abbr>
+        {% endif %} 
 
-</body>
+
+        <h3 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-1"><span class="u-icon u-icon-1"><svg class="u-svg-content" viewBox="0 0 57 57" x="0px" y="0px" style="width: 1em; height: 1em;"><g><path style="fill:#424A60;" d="M42.111,8.847c-0.473-0.29-1.087-0.143-1.376,0.327c-0.29,0.471-0.143,1.086,0.327,1.376C48.224,14.96,52.5,22.604,52.5,31c0,2.067-0.271,4.137-0.805,6.152c-0.141,0.533,0.177,1.081,0.711,1.223c0.085,0.022,0.172,0.033,0.256,0.033c0.443,0,0.848-0.296,0.966-0.744C54.207,35.482,54.5,33.24,54.5,31C54.5,21.905,49.869,13.623,42.111,8.847z"></path><path style="fill:#424A60;" d="M37.671,53.182C34.756,54.388,31.671,55,28.5,55c-6.728,0-13.189-2.854-17.728-7.832c-0.372-0.408-1.003-0.437-1.413-0.065c-0.408,0.372-0.437,1.005-0.065,1.413C14.211,53.907,21.211,57,28.5,57c3.435,0,6.778-0.663,9.936-1.971c0.51-0.211,0.753-0.796,0.542-1.307C38.767,53.213,38.181,52.971,37.671,53.182z"></path><path style="fill:#424A60;" d="M22.784,7.687c0.537-0.132,0.865-0.673,0.734-1.209c-0.13-0.536-0.674-0.862-1.208-0.734C11.302,8.434,3.371,17.838,2.573,29.146c-0.039,0.551,0.376,1.029,0.927,1.067c0.024,0.002,0.048,0.003,0.071,0.003c0.521,0,0.959-0.402,0.997-0.93C5.305,18.85,12.625,10.169,22.784,7.687z"></path>
+</g><circle style="fill:#EBBA16;" cx="28.5" cy="6" r="6"></circle><circle style="fill:#7383BF;" cx="6.5" cy="43" r="6"></circle><circle style="fill:#43B05C;" cx="50.5" cy="43" r="6"></circle></svg><img></span>&nbsp;COMUNIDAD
+        </h3>
+
+
+
+        <nav data-position="" class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700;">
+            <a class="u-button-style u-custom-active-border-color u-custom-border u-custom-border-color u-custom-borders u-custom-hover-border-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link" href="#" style="padding: 2px 0px; font-size: calc(1em + 4px);">
+              <svg><use xmlns:xlink="#" xlink:href="#menu-hamburger"></use></svg>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</symbol>
+</defs></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" 
+              href={% url 'home' %} style="padding: 10px 20px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href={% url 'post:listar_post' %}  style="padding: 10px 20px;">Publicaciones</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href={% url 'post:objetivos' %} style="padding: 10px 20px;">Objetivos</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px;">Publicar</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href={% url 'usuarios:registro' %} style="padding: 10px 20px;">Registro</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href={% url 'home' %} style="padding: 10px 20px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href={% url 'post:listar_post' %} style="padding: 10px 20px;">Publicaciones</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href={% url 'post:objetivos' %} style="padding: 10px 20px;">Objetivos</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 10px 20px;">Publicar</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href={% url 'usuarios:registro' %} style="padding: 10px 20px;">Registro</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+
+      {% if user.is_authenticated %}
+
+      <a class="u-login u-login-1" href={% url 'logout' %} title="Iniciar sesión">Cerrar sesión</a>
+      {% else %}
+          <a class="u-login u-login-1" href={% url 'login' %} title="Iniciar sesión">Iniciar sesión</a>
+          {% endif %}  
+
+      </div></header> 
+      <body>
+
+{% block img %}
+ 
+      <section class="u-clearfix u-image u-section-12" id="sec-9e45" data-image-width="1600" data-image-height="800"></section>
+
+{% endblock img %}
+
+{% block contenido %}
+
+{% endblock contenido %}
+
+
+      <footer class="u-clearfix u-footer u-grey-80" id="sec-a5f3"><div class="u-align-left u-clearfix u-sheet u-sheet-1">
+        <p class="u-large-text u-text u-text-default u-text-variant u-text-1"> En 2015, la ONU aprobó la&nbsp;Agenda 2030 sobre el Desarrollo Sostenible, una oportunidad para que los países y sus sociedades emprendan un nuevo camino con el que mejorar la vida de todos, sin dejar a nadie atrás. La Agenda cuenta con&nbsp;17 Objetivos de Desarrollo Sostenible,&nbsp;que incluyen desde la eliminación de la pobreza hasta el combate al cambio climático, la educación, la igualdad de la mujer, la defensa del medio ambiente o el diseño de nuestras ciudades.</p>
+      </div>
+      </footer>
+
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="#" target="_blank">
+        <span>Blog ODS</span>
+      </a>
+      <p class="u-text">
+        <span>creado por</span>
+      </p>
+      <a class="u-link" href="#" target="_blank">
+        <span>Grupo 10 Informatorio</span>
+      </a>. 
+    </section>
+  </body>
 </html>
