@@ -28,5 +28,6 @@ urlpatterns = [
     path('logout/', auth.LogoutView.as_view(), name='logout'),
     path('post/',include('apps.post.urls')),
     path('usuarios/',include('apps.usuarios.urls')),
+    path('comentario/',include('apps.comentario.urls')),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
