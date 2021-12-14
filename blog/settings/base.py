@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'import_export',
     'apps.usuarios',
     'ckeditor',
+    'apps.comentario',
 ]
 
 MIDDLEWARE = [
