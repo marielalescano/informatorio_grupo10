@@ -2,6 +2,21 @@
 {% load static %}
 
 {% block contenido %}
+
+
+{% if user.is_authenticated %}
+
+<section class="u-align-left u-clearfix u-section-9" id="sec-4b9f">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-align-center u-container-style u-grey-5 u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1">Usted ya se ha registrado y se encuentra logueado.&nbsp;</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% else %}
                                              
     <section class="u-clearfix u-section-7" id="sec-3558">   
 
@@ -17,46 +32,24 @@
   C23.587,10.539,21.397,9.5,18,9.5c-9.563,0-10,8-10,8v4.995c-0.526,0.475-1,1.154-1,1.914v3.455c0,0.911,0.479,1.711,1.194,2.174
   c0.863,3.758,3.76,6.463,3.76,6.463v3.157c0,1.151-0.629,2.211-1.64,2.762L3.61,46.622C1.385,47.836,0,50.168,0,52.703V55.5h14
   v-3.239C14,49.326,15.603,46.625,18.18,45.22z"></path></svg></span>
+
+
         <h1 class="u-align-center-xs u-custom-font u-font-lato u-text u-text-black u-text-default u-title u-text-1">Formulario de registro</h1>
         <div class="u-form u-form-1">
-          <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
-            <div class="u-form-group u-form-group-1">
-              <label for="text-3d10" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Username" id="text-3d10" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
-            </div>
-            <div class="u-form-group u-form-group-2">
-              <label for="password-a30d" class="u-label"></label>
-              <input type="password" placeholder="Contraseña" id="text-41bf" name="text-2" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
-            </div>
-            <div class="u-form-group u-form-name">
-              <label for="name-8389" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Nombre" id="name-8389" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-            </div>
-            <div class="u-form-group u-form-group-4">
-              <label for="text-7f6c" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Apellido" id="text-7f6c" name="text" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
-            </div>
-            <div class="u-form-email u-form-group">
-              <label for="email-8389" class="u-form-control-hidden u-label"></label>
-              <input type="email" placeholder="Email" id="email-8389" name="email" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-            </div>
-            <p>&nbsp&nbspCargue una imágen de perfil</p>
-            <div class="u-form-group u-form-group-6">
-              <label for="text-160c" class="u-form-control-hidden u-label"></label>
-              <input type="file" placeholder="Imágen de perfil" id="text-160c" name="text-3" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
-            </div>
+        <form method="POST">
+           {% csrf_token %}
+            {{ form.as_p }}
+         <class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
             <div class="u-align-center u-form-group u-form-submit">
-              <a href="#" class="u-black u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-btn-1">Registrate</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
+              <a  class="u-black u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-btn-1">Registrate</a>
+              <input type="submit"  value="submit" class="u-form-control-hidden">
             </div>
-            <div class="u-form-send-message u-form-send-success"></div>
-            <div class="u-form-send-error u-form-send-message"></div>
-            <input type="hidden" value="" name="recaptchaResponse">
-          </form>
-        </div>
+
+        </form> 
       </div>
-    </section>
+      </div>
 
-
+</section>
+      {% endif %}    
 
 {% endblock contenido %}

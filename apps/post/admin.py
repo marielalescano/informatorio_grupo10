@@ -3,18 +3,31 @@ from .models import *
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-class CategoriaResource(resources.ModelResource):
+class ObjetivoResource(resources.ModelResource):
     class Meta:
-        model = Categoria
+        model = Objetivo
 
 
-class CategoriaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+class ObjetivoAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     search_fields = ['nombre']
     list_display = ('nombre', 'estado', 'fecha_creacion',)
-    resource_class = CategoriaResource
+    resource_class = ObjetivoResource
 
-admin.site.register(Categoria,CategoriaAdmin)
-admin.site.register(Post)
-admin.site.register(Objetivo)
+
+class PostResource(resources.ModelResource):
+    class Meta:
+        model = Post
+
+
+class PostAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    search_fields = ['nombre']
+    list_display = ('titulo', 'estado', 'fecha_creacion',)
+    resource_class = PostResource
+
+
+
+
+admin.site.register(Post,PostAdmin)
+admin.site.register(Objetivo,ObjetivoAdmin)
 
 

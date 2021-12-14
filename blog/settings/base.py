@@ -23,7 +23,7 @@ SECRET_KEY = '+ed@0d^gow-bk0&w6kr-sj0l$1^f6gh-mr^35+1-3__8syc+!5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-AUTH_USER_MODEL = 'usuarios.Usuario'
+
 
 
 LOGIN_REDIRECT_URL = reverse_lazy('home')
@@ -89,7 +89,7 @@ CKEDITOR_CONFIGS = {
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
+"""AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
@@ -103,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+"""
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

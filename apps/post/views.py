@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 
 def listar_post(request): #página de lista de post
 
-    posts = Post.objects.filter(estado = True)  
+    posts = Post.objects.filter(estado = True)
     paginator = Paginator(posts,3)
     page = request.GET.get('page')
     posts = paginator.get_page(page)

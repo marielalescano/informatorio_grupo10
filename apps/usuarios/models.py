@@ -1,19 +1,25 @@
+from django.contrib.auth.models import User
 from django.db import models
 
-from django.contrib.auth.models import AbstractUser
 
-class Usuario(AbstractUser):
+class Profile(models.Model):
 
-    email = models.EmailField(max_length= 254, null= False)
-    imagen_perfil= models.ImageField(upload_to = 'imagenes_post', default = 'avatar.png')
+    user = models.OneToOneField(User, on_delete=models.PROTECT)
 
+    website = models.URLField(max_length=200, blank=True)
 
-    class Meta:
+    photo = models.ImageField(
+        upload_to='imagenes_post',
+        default = 'avatar.png'
+    )
 
-        verbose_name = 'Usuario'
-        verbose_name_plural ='Usuarios'
+    date_modified = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):
+        """Return username."""
+        return self.user.username
 
-        return self.username
+
+
+
