@@ -4,19 +4,23 @@ from .models import Comment
 from .forms import CreateCommentForm
 
 
+from django.http import HttpResponse
+
+
+
 @login_required
 def save_comment(request):
     if request.method == 'POST':
         url = request.POST['url']
         post = {
-            'user': request.user.id,
+            'user': request.user.pk,
             'comment': request.POST['comment'],
             'post': request.POST['post']
         }
         form = CreateCommentForm(post)
         if form.is_valid():
             form.save()
-            return redirect('post:detalle', url=url)
+            return redirect('post:DetallePost', url=url)
     else:
         return HttpResponse(status=405)
     return HttpResponse(status=500)
