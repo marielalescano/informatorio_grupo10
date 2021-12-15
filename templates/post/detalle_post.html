@@ -15,7 +15,10 @@
             <h2 class="u-blog-control u-text u-text-1">
               <a class="u-post-header-link" href="#"><!--blog_post_header_content-->{{ posts.titulo }}<!--/blog_post_header_content--></a>
             </h2><!--/blog_post_header-->
-            <a href="#" class="u-border-2 u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-button-style u-hover-feature u-none u-radius-50 u-text-palette-2-base u-btn-1"><span class="u-icon u-text-palette-1-base u-icon-1"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;"><path d="M376,30c-27.783,0-53.255,8.804-75.707,26.168c-21.525,16.647-35.856,37.85-44.293,53.268 c-8.437-15.419-22.768-36.621-44.293-53.268C189.255,38.804,163.783,30,136,30C58.468,30,0,93.417,0,177.514 c0,90.854,72.943,153.015,183.369,247.118c18.752,15.981,40.007,34.095,62.099,53.414C248.38,480.596,252.12,482,256,482 s7.62-1.404,10.532-3.953c22.094-19.322,43.348-37.435,62.111-53.425C439.057,330.529,512,268.368,512,177.514 C512,93.417,453.532,30,376,30z"></path></svg><img></span>
+            <br>
+            <a href="#" 
+                
+            <span class="u-icon u-text-palette-1-base u-icon-1"><img src={% static 'img/up.png' %} width = "30" height = "30"><img></span>
             </a><!--blog_post_metadata-->
             <div class="u-blog-control u-metadata u-text-grey-30 u-metadata-1"><!--blog_post_metadata_date-->
               <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->{{ posts.fecha_creacion }}<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date--><!--blog_post_metadata_category-->
@@ -24,7 +27,7 @@
             </div><!--/blog_post_metadata-->
             <p class="u-text u-text-default u-text-grey-40 u-text-2">
               
-              <span  style="font-weight: 700;">100</span> me gusta
+              <span  style="font-weight: 700;">1</span> Up
             </p><!--blog_post_content-->
             <div class="u-align-justify u-blog-control u-post-content u-text u-text-3"><!--blog_post_content_content-->{{ posts.contenido|safe  }}<!--/blog_post_content_content--></div><!--/blog_post_content-->
           </div>
@@ -32,6 +35,10 @@
       </div>
       
     </section>
+
+    
+
+
 
     <section class="u-align-center u-clearfix u-section-14" id="sec-a84e">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -54,14 +61,14 @@
                   <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-3">
                     <div class="u-container-layout u-container-layout-3">
                       <div class="u-form u-form-1">
-                        <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form-3" style="padding: 10px;">
+                        <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="comment" style="padding: 10px;">
+                          {% csrf_token %} 
                           <div class="u-form-group u-form-name">
-                            <label for="name-49bf" class="u-form-control-hidden u-label"></label>
-                            <input type="text" placeholder="Nombre o Username" id="name-49bf" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+                              <p>Bienvenido {{user.username}} dejanos tu mensaje </p>
                           </div>
                           <div class="u-form-group u-form-message">
                             <label for="message-49bf" class="u-form-control-hidden u-label"></label>
-                            <textarea placeholder="Ingrese su comentario" rows="4" cols="50" id="message-49bf" name="message" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
+                            <textarea placeholder="Ingrese su comentario" rows="4" cols="50" id="message-49bf" name="comment" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
                           </div>
                           <div class="u-align-center u-form-group u-form-submit">
                             <a href="#" class="u-black u-border-none u-btn u-btn-submit u-button-style u-btn-1">Enviar comentario</a>
@@ -81,7 +88,7 @@
         </div>
       </div>
     </section>
-    <section class="u-align-center u-clearfix u-section-15" id="carousel_369e">
+<section class="u-align-center u-clearfix u-section-15" id="carousel_369e">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
         <div class="u-blog u-pagination-center u-blog-1">
           <div class="u-repeater u-repeater-1"><!--blog_post-->
@@ -90,11 +97,11 @@
                 <div class="u-blog-control u-metadata u-metadata-1"><!--blog_post_metadata_date-->
                   <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->Sat Dec 11 2021<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
                 </div><!--/blog_post_metadata-->
-                <a class="u-post-header-link" ><!--blog_post_image-->
+                <a class="u-post-header-link" href="#"><!--blog_post_image-->
                   <img src={% static "img/6.jpeg" %} alt="" class="u-blog-control u-image u-image-default u-image-1"><!--/blog_post_image-->
                 </a><!--blog_post_header-->
                 <h6 class="u-blog-control u-text u-text-1">
-                  <a class="u-post-header-link" ><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
+                  <a class="u-post-header-link" href="blog/enviar-5.html"><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
                 </h6><!--/blog_post_header--><!--blog_post_content-->
                 <div class="u-blog-control u-post-content u-text u-text-2"><!--blog_post_content_content-->Ejemplo de texto pequeño. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
               </div>
@@ -108,7 +115,7 @@
                   <img src={% static "img/5.jpeg" %} alt="" class="u-blog-control u-image u-image-default u-image-2"><!--/blog_post_image-->
                 </a><!--blog_post_header-->
                 <h6 class="u-blog-control u-text u-text-3">
-                  <a class="u-post-header-link" ><!--blog_post_header_content-->Post 5 Headline<!--/blog_post_header_content--></a>
+                  <a class="u-post-header-link" href="#"><!--blog_post_header_content-->Post 5 Headline<!--/blog_post_header_content--></a>
                 </h6><!--/blog_post_header--><!--blog_post_content-->
                 <div class="u-blog-control u-post-content u-text u-text-4"><!--blog_post_content_content-->Ejemplo de texto pequeño. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
               </div>
@@ -118,11 +125,11 @@
                 <div class="u-blog-control u-metadata u-metadata-3"><!--blog_post_metadata_date-->
                   <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->Sat Dec 11 2021<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
                 </div><!--/blog_post_metadata-->
-                <a class="u-post-header-link" ><!--blog_post_image-->
+                <a class="u-post-header-link" href="#"><!--blog_post_image-->
                   <img src={% static "img/5.jpeg" %} alt="" class="u-blog-control u-image u-image-default u-image-3"><!--/blog_post_image-->
                 </a><!--blog_post_header-->
                 <h6 class="u-blog-control u-text u-text-5">
-                  <a class="u-post-header-link" ><!--blog_post_header_content-->Post 4 Headline<!--/blog_post_header_content--></a>
+                  <a class="u-post-header-link" href="#"><!--blog_post_header_content-->Post 4 Headline<!--/blog_post_header_content--></a>
                 </h6><!--/blog_post_header--><!--blog_post_content-->
                 <div class="u-blog-control u-post-content u-text u-text-6"><!--blog_post_content_content-->Ejemplo de texto pequeño. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
               </div>
@@ -142,6 +149,7 @@
         </div><!--/blog-->
       </div>
     </section>
+
 
 
 {% endblock contenido %}

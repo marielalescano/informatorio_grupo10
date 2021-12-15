@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Post,Objetivo
 from django.core.paginator import Paginator 
+from apps.comentario.models import Comment
+
 
 def listar_post(request): #página de lista de post
 
@@ -16,7 +18,7 @@ def DetallePost(request, pk): # página para ver post
 
     posts = Post.objects.get(pk = pk)
 
-    return render(request, 'post/detalle_post.html',{'posts':posts})
+    return render(request, 'post/detalle_post.html',{'posts':posts} )
 
 
 
@@ -25,8 +27,6 @@ def objetivos(request): # página donde se listan los objetivos como categorías
     objetivos = Objetivo.objects.filter(estado = True)
 
     return render(request,'post/objetivos.html',{'objetivos': objetivos})
-
-
 
 
 def listarPostObjetivos(request,pk): # página donde se listan los post segun el objetivo selecc.
