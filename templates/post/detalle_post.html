@@ -27,7 +27,7 @@
             </div><!--/blog_post_metadata-->
             <p class="u-text u-text-default u-text-grey-40 u-text-2">
               
-              <span  style="font-weight: 700;">1</span> Up
+              <span  style="font-weight: 700;">158</span> Up
             </p><!--blog_post_content-->
             <div class="u-align-justify u-blog-control u-post-content u-text u-text-3"><!--blog_post_content_content-->{{ posts.contenido|safe  }}<!--/blog_post_content_content--></div><!--/blog_post_content-->
           </div>
@@ -61,10 +61,12 @@
                   <div class="u-container-style u-layout-cell u-size-60 u-layout-cell-3">
                     <div class="u-container-layout u-container-layout-3">
                       <div class="u-form u-form-1">
+
+
                         <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="comment" style="padding: 10px;">
-                          {% csrf_token %} 
+                           
                           <div class="u-form-group u-form-name">
-                              <p>Bienvenido {{user.username}} dejanos tu mensaje </p>
+                              <p>Bienvenido <strong>{{user.username}} </strong>dejanos tu mensaje </p>
                           </div>
                           <div class="u-form-group u-form-message">
                             <label for="message-49bf" class="u-form-control-hidden u-label"></label>
@@ -78,6 +80,8 @@
                           <div class="u-form-send-error u-form-send-message"> No se puede enviar su mensaje. Por favor, corrija los errores y vuelva a intentarlo. </div>
                           <input type="hidden" value="" name="recaptchaResponse">
                         </form>
+
+
                       </div>
                     </div>
                   </div>

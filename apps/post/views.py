@@ -25,7 +25,9 @@ def DetallePost(request, pk): # página para ver post
 def objetivos(request): # página donde se listan los objetivos como categorías
     
     objetivos = Objetivo.objects.filter(estado = True)
-
+    paginator = Paginator(objetivos,10)
+    page = request.GET.get('page')
+    objetivos = paginator.get_page(page)
     return render(request,'post/objetivos.html',{'objetivos': objetivos})
 
 
