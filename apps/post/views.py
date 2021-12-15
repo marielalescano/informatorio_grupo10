@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Post,Objetivo
 from django.core.paginator import Paginator 
 from apps.comentario.models import Comment
-
+from apps.comentario.forms import CreateCommentForm
 
 def listar_post(request): #página de lista de post
 
@@ -16,9 +16,21 @@ def listar_post(request): #página de lista de post
 def DetallePost(request, pk): # página para ver post
 
     posts = Post.objects.get(pk = pk)
-    return render(request, 'post/detalle_post.html',{'posts':posts} )
+    comments = Comment.objects.filter(post=pk)
+    form_comments = CreateCommentForm()
+    ctx ={
+        'posts':posts,
+        'comments':comments,
+        'form_comments':form_comments,
+    }
 
+    return render(request, 'post/detalle_post.html',ctx )
 
+'''
+    context['comments'] = Comment.objects.filter(post=pk.get_object()).all()
+    context['form_comments'] = CreateCommentForm()
+    return context
+'''
 
 
 def objetivos(request): # página donde se listan los objetivos como categorías
