@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from comments.models import Comment
-from comments.forms import CreateCommentForm
+from .models import Comment
+from .forms import CreateCommentForm
 
 
 @login_required

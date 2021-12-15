@@ -5,6 +5,16 @@ from django.core.paginator import Paginator
 def listar_post(request): #página de lista de post
 
     posts = Post.objects.filter(estado = True)
+
+    form= CreateCommentForm()
+    comments= CreateCommentForm.objects.filter(request.POST).order_by('-create_on')
+    if form.is_valid():
+        new_comments=form.save(commit=False)
+        new_comments=request.user
+        new_comments.post=post
+        new_comments.save()
+
+
     paginator = Paginator(posts,3)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
@@ -15,8 +25,10 @@ def listar_post(request): #página de lista de post
 def DetallePost(request, pk): # página para ver post
 
     posts = Post.objects.get(pk = pk)
+    form= CreateCommentForm()
+    comments= CreateCommentForm.objects.filter(posts=posts).order_by('-create_on')
 
-    return render(request, 'post/detalle_post.html',{'posts':posts})
+    return render(request, 'post/detalle_post.html',{'posts':posts},{'comments':comments})
 
 
 

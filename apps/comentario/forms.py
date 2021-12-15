@@ -4,7 +4,7 @@
 from django import forms
 
 # Models
-from comments.models import Comment
+from .models import Comment
 from django.contrib.auth.models import User
 
 class CreateCommentForm(forms.ModelForm):
