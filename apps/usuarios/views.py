@@ -21,3 +21,7 @@ class registro(CreateView):
 
 def publicar(request):
     return render(request,'usuarios/publicar.html')
+
+def profile(request):
+    
+    return render(request,'usuarios/profile.html')

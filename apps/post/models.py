@@ -29,7 +29,7 @@ class Post(models.Model):
     objetivo = models.ForeignKey(Objetivo, on_delete = models.CASCADE, null=False)
     estado = models.BooleanField('Activo/No Activo', default=True)
     fecha_creacion = models.DateField('Fecha de creación', auto_now=False, auto_now_add=True)
-   
+    usuario = models.ForeignKey(User, on_delete = models.CASCADE)
 
     
     class Meta:

@@ -20,7 +20,7 @@ def save_comment(request):
         form = CreateCommentForm(post)
         if form.is_valid():
             form.save()
-            return redirect('post:DetallePost', url=url)
+            return redirect('post:detalle')
     else:
         return HttpResponse(status=405)
     return HttpResponse(status=500)

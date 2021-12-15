@@ -6,10 +6,16 @@ from apps.comentario.forms import CreateCommentForm
 
 def listar_post(request): #página de lista de post
 
+    #posts = Post.objects.all().order_by('user')
+
     posts = Post.objects.filter(estado = True)
+
+
+    
     paginator = Paginator(posts,3)
     page = request.GET.get('page')
-    posts = paginator.get_page(page)   
+    posts = paginator.get_page(page)  
+
     return render(request,'post/listar_post.html', {'posts':posts})
 
     
@@ -23,6 +29,7 @@ def DetallePost(request, pk): # página para ver post
         'comments':comments,
         'form_comments':form_comments,
     }
+
 
     return render(request, 'post/detalle_post.html',ctx )
 

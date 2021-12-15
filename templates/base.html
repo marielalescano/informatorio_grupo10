@@ -47,7 +47,7 @@
  
 
          {% if user.is_authenticated %}
-        <img class="u-image u-image-default u-image-1" src= "{{ user.profile.photo.url }}" alt="" data-image-width="720" data-image-height="720" data-href="#"<abbr title="Bienvenido {{ user.username }}"></abbr>
+        <img class="u-image u-image-default u-image-1" src= "{{ user.profile.photo.url }}" alt="" data-image-width="720" data-image-height="720" data-href={% url 'usuarios:profile' %} title="Bienvenido {{ user.username }}"></abbr>
         {% endif %} 
 
 

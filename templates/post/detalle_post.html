@@ -19,19 +19,22 @@
             <a href="#" 
                 
             <span class="u-icon u-text-palette-1-base u-icon-1"><img src={% static 'img/up.png' %} width = "30" height = "30"><img></span>
-            </a><!--blog_post_metadata-->
-            <div class="u-blog-control u-metadata u-text-grey-30 u-metadata-1"><!--blog_post_metadata_date-->
-              <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->{{ posts.fecha_creacion }}<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date--><!--blog_post_metadata_category-->
-              <span class="u-meta-category u-meta-icon"><!--blog_post_metadata_category_content-->{{ posts.objetivos }}<!--/blog_post_metadata_category_content--></span><!--/blog_post_metadata_category--><!--blog_post_metadata_comments-->
-              <span class="u-meta-comments u-meta-icon"><!--blog_post_metadata_comments_content-->Comments (0)<!--/blog_post_metadata_comments_content--></span><!--/blog_post_metadata_comments-->
+            </a>
+
+            <div class="u-blog-control u-metadata u-text-grey-30 u-metadata-1">
+              <span class="u-meta-date u-meta-icon">{{ posts.fecha_creacion }}</span>
+              <span class="u-meta-category u-meta-icon">{{ posts.objetivos }}</span>
+              <span class="u-meta-date u-meta-icon">Creado por <strong>{{ posts.usuario }}</strong></span>
+              <span class="u-meta-comments u-meta-icon">Comments (0)</span>
+
             </div><!--/blog_post_metadata-->
             <p class="u-text u-text-default u-text-grey-40 u-text-2">
               
-              <span  style="font-weight: 700;">158</span> Up
-            </p><!--blog_post_content-->
-            <div class="u-align-justify u-blog-control u-post-content u-text u-text-3"><!--blog_post_content_content-->{{ posts.contenido|safe  }}<!--/blog_post_content_content--></div><!--/blog_post_content-->
+              <span style="font-weight: 700;">158</span> Up
+            </p>
+            <div class="u-align-justify u-blog-control u-post-content u-text u-text-3">{{ posts.contenido|safe  }}</div>
           </div>
-        </div><!--/blog_post--><!--/post_details-->
+        </div>
       </div>
       
     </section>
@@ -62,9 +65,16 @@
                     <div class="u-container-layout u-container-layout-3">
                       <div class="u-form u-form-1">
 
+                      
 
-                        <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="comment" style="padding: 10px;">
-                           
+
+                        <form action="{% url "comentario:save_comment" %}" method="POST" 
+                         class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="CreateCommentForm" style="padding: 10px;">
+                           {% csrf_token %}
+
+                          <input type="hidden" name="url" value="{{post.url}}" />
+                          <input type="hidden" name="post" value="{{post.pk}}" />
+
                           <div class="u-form-group u-form-name">
                               <p>Bienvenido <strong>{{user.username}} </strong>dejanos tu mensaje </p>
                           </div>
@@ -106,7 +116,7 @@
                   <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->{{comment.fecha}}<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
                 </div><!--/blog_post_metadata-->
                 <a class="u-post-header-link" href="#"><!--blog_post_image-->
-                  <img src={% static "img/6.jpeg" %} alt="" class="u-blog-control u-image u-image-default u-image-1"><!--/blog_post_image-->
+                  <img src={{comment.user.profile.photo.url}} alt="" class="u-blog-control u-image u-image-default u-image-1"><!--/blog_post_image-->
                 </a><!--blog_post_header-->
                 <h6 class="u-blog-control u-text u-text-1">
                   <a class="u-post-header-link" href="blog/enviar-5.html"><!--blog_post_header_content-->{{ comment.user}}<!--/blog_post_header_content--></a>
