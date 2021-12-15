@@ -7,32 +7,15 @@ from apps.comentario.models import Comment
 def listar_post(request): #página de lista de post
 
     posts = Post.objects.filter(estado = True)
-
-    form= CreateCommentForm()
-    comments= CreateCommentForm.objects.filter(request.POST).order_by('-create_on')
-    if form.is_valid():
-        new_comments=form.save(commit=False)
-        new_comments=request.user
-        new_comments.post=post
-        new_comments.save()
-
-
     paginator = Paginator(posts,3)
     page = request.GET.get('page')
-    posts = paginator.get_page(page)
-    
+    posts = paginator.get_page(page)   
     return render(request,'post/listar_post.html', {'posts':posts})
 
     
 def DetallePost(request, pk): # página para ver post
 
     posts = Post.objects.get(pk = pk)
-    form= CreateCommentForm()
-    comments= CreateCommentForm.objects.filter(posts=posts).order_by('-create_on')
-
-
-    return render(request, 'post/detalle_post.html',{'posts':posts},{'comments':comments})
-
     return render(request, 'post/detalle_post.html',{'posts':posts} )
 
 
@@ -56,3 +39,22 @@ def listarPostObjetivos(request,pk): # página donde se listan los post segun el
     posts = paginator.get_page(page)
 
     return render(request,'post/objetivos_post.html', {'posts': posts})
+
+
+
+
+    '''form= CreateCommentForm()
+    comments= CreateCommentForm.objects.filter(request.POST).order_by('-create_on')
+    if form.is_valid():
+        new_comments=form.save(commit=False)
+        new_comments=request.user
+        new_comments.post=post
+        new_comments.save()
+
+
+
+    form= CreateCommentForm()
+    comments= CreateCommentForm.objects.filter(posts=posts).order_by('-create_on')
+
+
+    return render(request, 'post/detalle_post.html',{'posts':posts},{'comments':comments})'''
