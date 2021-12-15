@@ -2,7 +2,10 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import Comment
 from .forms import CreateCommentForm
+
+
 from django.http import HttpResponse
+
 
 
 @login_required
