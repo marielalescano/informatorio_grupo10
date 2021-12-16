@@ -67,14 +67,9 @@
 
                       
 
-
-                        <form action="{% url "comentario:save_comment" %}" method="POST" 
-                         class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="CreateCommentForm" style="padding: 10px;">
+                          <form  method="POST" {% csrf_token %} <class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="comment" style="padding: 10px;">
                            {% csrf_token %}
-
-                          <input type="hidden" name="url" value="{{post.url}}" />
-                          <input type="hidden" name="post" value="{{post.pk}}" />
-
+                          
                           <div class="u-form-group u-form-name">
                               <p>Bienvenido <strong>{{user.username}} </strong>dejanos tu mensaje </p>
                           </div>
@@ -90,6 +85,7 @@
                           <div class="u-form-send-error u-form-send-message"> No se puede enviar su mensaje. Por favor, corrija los errores y vuelva a intentarlo. </div>
                           <input type="hidden" value="" name="recaptchaResponse">
                         </form>
+
 
 
                       </div>

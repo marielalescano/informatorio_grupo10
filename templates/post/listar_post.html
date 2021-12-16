@@ -14,26 +14,26 @@
 
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-form u-form-1">
-          <form action="#" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" source="custom" name="form-1" style="padding: 10px;">
+
+          <form method="GET" class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" source="custom" name="form-1" style="padding: 10px;">
             <div class="u-form-group u-form-select u-form-group-1">
               <label for="select-f1e0" class="u-form-control-hidden u-label"></label>
               <div class="u-form-select-wrapper">
                 <select id="select-f1e0" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
-                  <option value="Filtrar por usuario">Filtrar por usuario</option>
-                  <option value="Filtrar por fecha de creación">Filtrar por fecha de creación</option>
-                  <option value="Filtrar por Comentarios">Filtrar por Comentarios</option>
+                  <option value="1" name="usuario"> Filtrar por usuario</option>
+                  <option value="2"name="fecha">Filtrar por fecha de creación</option>
+                  <option value="3"name="comentarios">Filtrar por Comentarios</option>
                 </select>
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
               </div>
             </div>
             <div class="u-align-right u-form-group u-form-submit">
-              <a href="#" class="u-black u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-btn-1">VER<br>
+              <a class="u-black u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-btn-1">Filtrar<br>
               </a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
+              <button type ="submit" value="submit" class="u-form-control-hidden">Filtrar
+              </button>
             </div>
-            <div class="u-form-send-message u-form-send-success"></div>
-            <div class="u-form-send-error u-form-send-message"></div>
-            <input type="hidden" value="" name="recaptchaResponse">
+                        
           </form>
         </div>
         <img class="u-image u-image-default u-preserve-proportions u-image-1" src= {% static "img/filter-icon.png" %} alt="" data-image-width="200" data-image-height="200">
@@ -71,7 +71,7 @@
                   <!--blog_post_content_content-->{{ post.descripcion }}<!--/blog_post_content_content--></div><!--/blog_post_content--><!--blog_post_metadata-->
 
                 <div class="u-blog-control u-metadata u-metadata-1"><!--blog_post_metadata_date-->
-                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->{{ post.fecha_creacion }}<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
+                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->{{ post.fecha_creacion }} Escrito por  <strong>{{post.usuario}}</strong><!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
                 </div><!--/blog_post_metadata--><!--blog_post_readmore-->
                 <a href="{% url 'post:detalle' post.pk %}" class="u-black u-blog-control u-border-none u-btn u-button-style u-hover-palette-1-dark-1 u-btn-1"><!--blog_post_readmore_content--><!--options_json--><!--{"content":"Read More"}--><!--/options_json-->Ver más<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
               </div>
@@ -89,7 +89,7 @@
 
        </div>
 
-<div class="u-list-control"><!--blog_pagination--><!--blog_pagination_options_json--><!--{"ul":"style=\"\" class=\"responsive-style1 u-pagination u-unstyled\"","li":"style=\"\" class=\"u-nav-item u-pagination-item\"","link":"style=\"padding: 16px 28px;\" class=\"u-button-style u-nav-link\""}--><!--/blog_pagination_options_json-->
+<div class="u-list-control">
             
           </div>
         </div><!--/blog-->

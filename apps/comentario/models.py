@@ -12,7 +12,7 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     #profile = models.ForeignKey('users.Profile', on_delete=models.PROTECT)
     post = models.ForeignKey(Post, on_delete=models.PROTECT)
-    comment = models.CharField(max_length=5000)
+    comment = models.TextField()
     fecha = models.DateField(auto_now_add = True)
 
 

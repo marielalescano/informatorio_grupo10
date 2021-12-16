@@ -18,15 +18,48 @@
             <a href="{% url 'post:listarPostObjetivos' obj.pk %}" class="u-btn u-button-style u-grey-90 u-btn-1">Ver Post</a>
           </div>
         </div>
-      </div>
-    </section>   
-
-{% endfor %}
+      
+            {% endfor %}
 
     {% else %}
 
       <h2> No existen Objetivos</h2>
 
-{% endif %}
+    {% endif %}
+
+</div>
+<div class="u-list-control">
+            
+          </div>
+        </div>
+        <div class="u-align-center u-table u-table-responsive u-table-1">
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="49.9%">
+              <col width="50.1%">
+            </colgroup>
+            <tbody class="u-table-body">
+              <tr style="height: 46px;">
+                <td class="u-table-cell"></td>
+                <td class="u-table-cell"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+          {% if objetivos.has_previous %}
+
+        <a href="?page={{ objetivos.previous_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="u-btn u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-4">&nbsp; &nbsp;〈  Anterior </a>
+        {% endif %}
+
+        {% if objetivos.has_next %}
+
+        <a href="?page={{ objetivos.next_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="u-btn u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-5">Siguiente 〉&nbsp; </a>
+        {% endif %}
+      
+    </div>
+
+ </section>
+
 
 {% endblock contenido %}
