@@ -16,22 +16,23 @@
               <a class="u-post-header-link" href="#"><!--blog_post_header_content-->{{ posts.titulo }}<!--/blog_post_header_content--></a>
             </h2><!--/blog_post_header-->
             <br>
-            <a href="#" 
+            <a href="{% url 'post:darlike' posts.pk %}" 
                 
-            <span class="u-icon u-text-palette-1-base u-icon-1"><img src={% static 'img/up.png' %} width = "30" height = "30"><img></span>
-            </a>
-
+            <span class="u-icon u-text-palette-1-base u-icon-1"><img src={% static 'img/like2.png' %} width = "45" height = "40"><img> </span>
+            </a><!--blog_post_metadata-->
+               
             <div class="u-blog-control u-metadata u-text-grey-30 u-metadata-1">
+              
               <span class="u-meta-date u-meta-icon">{{ posts.fecha_creacion }}</span>
-              <span class="u-meta-category u-meta-icon">{{ posts.objetivos }}</span>
+              <span class="u-meta-date u-meta-icon">{{ posts.objetivo }}</span>
               <span class="u-meta-date u-meta-icon">Creado por <strong>{{ posts.usuario }}</strong></span>
-              <span class="u-meta-comments u-meta-icon">Comments (0)</span>
+              <span class="u-meta-comments u-meta-icon">Comentarios ({{comment}})</span>
 
             </div><!--/blog_post_metadata-->
             <p class="u-text u-text-default u-text-grey-40 u-text-2">
               
-              <span style="font-weight: 700;">158</span> Up
-            </p>
+              <span  style="font-weight: 700;">{{likes}}</span> Me gusta
+            </p><!--blog_post_content-->
             <div class="u-align-justify u-blog-control u-post-content u-text u-text-3">{{ posts.contenido|safe  }}</div>
           </div>
         </div>

@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 
 
+
 class Objetivo(models.Model):
     nombre = models.CharField('Nombre del objetivo', max_length = 100, null = False, blank = False)
     descripcion = models.TextField('Descripción', null=False)
@@ -30,11 +31,15 @@ class Post(models.Model):
     estado = models.BooleanField('Activo/No Activo', default=True)
     fecha_creacion = models.DateField('Fecha de creación', auto_now=False, auto_now_add=True)
     usuario = models.ForeignKey(User, on_delete = models.CASCADE)
+    likes = models.ManyToManyField(User, related_name = 'post_likes')  
 
-    
+    def cantidad_likes(self):
+        return self.likes.count()
+
     class Meta:
         verbose_name='Post'
         verbose_name_plural='Posts'
+
 
     def __str__(self):
         return self.titulo
