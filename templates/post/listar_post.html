@@ -1,41 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block estilo %}
+{% block img %}
+ 
 
 
 
-{% endblock estilo %}
-
-{% block contenido %}
-
-
-    <section class="u-clearfix u-grey-5 u-section-11" id="sec-7c3e">
-
+      <section class="u-align-center u-clearfix u-image u-shading u-section-10" src="" data-image-width="1600" data-image-height="800" id="sec-5e29">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-form u-form-1">
-
-
-                                    <div class="u-clearfix u-sheet u-sheet-1">
                                       <div class="u-form u-form-1">
                                           <form method="get">
                                               <div id="custom-search-input">
                                                
                                                   <select id="select-f1e0" name="buscar" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" value = "{{ request.GET.buscar }}">
-                  <option value="1" name="usuario" >Filtrar por usuario</option>
-                  <option value="2"name="fecha">Filtrar por fecha de creación</option>
-                  <option value="3"name="comentarios">Filtrar por Comentarios</option>
+                  <option value="1" name="usuario" >Ordenar por usuario</option>
+                  <option value="2"name="fecha">Ordenar por fecha de creación</option>
+                  <option value="3"name="comentarios">Ordenar por Comentarios</option>
                 </select>
                                                   <span class="input-group-list">
                                                     <i class="icon icon-search"></i>
                                                     <button type="submit" <a class="u-black u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-btn-1">Filtrar</button>
-
-
-
         </div>
-        <img class="u-image u-image-default u-preserve-proportions u-image-1" src= {% static "img/filter-icon.png" %} alt="" data-image-width="200" data-image-height="200">
       </div>
     </section>
+
+{% endblock img %}
+
+
+
+{% block estilo %}{% endblock estilo %}
+
+{% block contenido %}
+
+
+
 
     <section class="u-align-center u-clearfix u-section-6" id="carousel_f63d">
       <div class="u-clearfix u-sheet u-sheet-1">

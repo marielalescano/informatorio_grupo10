@@ -11,7 +11,9 @@ def listar_post(request):
     if opcion == "1":
         posts = Post.objects.all().order_by('usuario')
     elif opcion == "2":
-        posts=Post.objects.filter(estado = True).order_by('-fecha_creacion') 
+        posts=Post.objects.all().order_by('-fecha_creacion') 
+    elif opcion == "3":
+        posts=Post.objects.all().order_by('-likes')
 
     paginator = Paginator(posts,3)
     page = request.GET.get('page')
