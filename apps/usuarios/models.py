@@ -8,13 +8,13 @@ class Profile(models.Model):
 
     website = models.URLField(max_length=200, blank=True)
 
-    photo = models.ImageField(upload_to='imagenes_post',default = 'avatar.png')
+    photo = models.ImageField(upload_to='img_perfil',default = 'avatar.png')
 
     date_modified = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):
-        """Return username."""
+        
         return self.user.username
 
 
