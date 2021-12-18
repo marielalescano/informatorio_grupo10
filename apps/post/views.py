@@ -3,26 +3,39 @@ from .models import Post,Objetivo
 from django.core.paginator import Paginator 
 from apps.comentario.models import Comment
 from apps.comentario.forms import CreateCommentForm
+from .forms import AltaPost
+from django.contrib.auth.models import User
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
+
+
+
+class AltaPost(CreateView):
+    model = 'Post'
+    template_name = 'post/publicar.html'
+    form_class = AltaPost
+    success_url = reverse_lazy('home')
+
+
 
 def listar_post(request): 
 
-    opcion = request.GET.get('buscar')
+    opcion = request.GET.get('select')
     posts = Post.objects.all()
     if opcion == "1":
         posts = Post.objects.all().order_by('usuario')
     elif opcion == "2":
-        posts=Post.objects.all().order_by('-fecha_creacion') 
-    elif opcion == "3":
-        posts=Post.objects.all().order_by('-likes')
+        posts=Post.objects.all().order_by('fecha_creacion') 
+    #elif opcion == "3":
+
+
 
     paginator = Paginator(posts,3)
     page = request.GET.get('page')
     posts = paginator.get_page(page)  
 
     return render(request,'post/listar_post.html', {'posts':posts})
-    #posts = Post.objects.all().order_by('')
-    #posts = Post.objects.all().order_by('user')
-    #Post.objects.filter(estado = True).order_by('-fecha_creacion')
+
     
 def DetallePost(request, pk): # página para ver post
 
@@ -50,15 +63,16 @@ def DetallePost(request, pk): # página para ver post
         'posts':posts,
         'comments':comments,
         'form':form,
-        #'comment':post.cantidad_comment(),
         'comment':comment,
         'likes': posts.cantidad_likes(),
     }    
 
     return render(request, 'post/detalle_post.html',ctx )
+  
 
 
-def objetivos(request): # página donde se listan los objetivos como categorías
+
+def objetivos(request):
     
     objetivos = Objetivo.objects.filter(estado = True)
     paginator = Paginator(objetivos,3)
@@ -87,6 +101,3 @@ def darlike(request, pk):
         post.likes.add(request.user)
     return redirect('/post/detalle/'+str(post.id), {'Post': post, 'likes': post.cantidad_likes()} )
 
-    """if request.user in post.likes.all():
-        post.likes.remove(request.user)
-    else:"""

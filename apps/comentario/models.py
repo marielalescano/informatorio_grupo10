@@ -11,7 +11,8 @@ class Comment(models.Model):
     comment = models.TextField()
     fecha = models.DateField(auto_now_add = True)
     
-
+    def contar_comentarios(self):
+        return self.comment.count()
 
     def __str__(self):
         return self.comment

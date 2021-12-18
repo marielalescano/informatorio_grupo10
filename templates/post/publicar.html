@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+
+
+ {% if user.is_authenticated %}
+  <section class="u-clearfix u-section-7" id="sec-3558">   
+
+      <div class="u-clearfix u-sheet u-sheet-1"><span class="u-icon u-icon-circle u-icon-1"></svg></span>
+          
+                
+
+<h1 class="u-align-center-xs u-custom-font u-font-lato u-text u-text-black u-text-default u-title u-text-1">Formulario de Alta Post</h1>
+        <div class="u-form u-form-1">
+          <form  method="POST" enctype="multipart/form-data">{% csrf_token %} <class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
+            {% csrf_token %}
+             
+            <div class="u-form-group u-form-group-1">
+              <label for="titulo" class="u-form-control-hidden u-label"></label>
+              <input type="text" placeholder="Título de Post" id="text-3d10" name="titulo" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            </div>
+            <br>
+            <div class="u-form-group u-form-group-2">
+              <label for="user" class="u-form-control-hidden u-label"></label>
+              <input type="hidden" value="{{user.pk}}" placeholder="" id="text-41bf" name="user" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            </div>
+            <br>
+            <div class="u-form-group u-form-name">
+              <label for="descripcion" class="u-form-control-hidden u-label"></label>
+              <input type="text" placeholder="Introduzca una breve descripción" id="name-8389" name="descripcion" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+            </div>
+            <br>
+     <div class="u-form-group u-form-name">
+              <label for="contenido" </label>
+            </div>
+            <p><textarea name="contenido" placeholder="Contenido de Post"cols="65" rows="10"></textarea></p>
+
+
+
+            <br>
+                 <div class="u-form-group u-form-name">
+              <label for="imagen" class="u-form-control-hidden u-label"></label>
+              <input type="file" placeholder="Nombre" id="name-8389" name="imagen" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+            </div>
+            <br>
+
+<select name="objetivo" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+  <option value="1">Objetivo 1</option>
+  <option value="2" selected>Objetivo 2</option>
+  <option value="3">Objetivo 3</option>
+  <option value="4">Objetivo 4</option>
+  <option value="5">Objetivo 5</option>
+  <option value="6">Objetivo 6</option>
+  <option value="7">Objetivo 7</option>
+  <option value="8">Objetivo 8</option>
+  <option value="9">Objetivo 9</option>
+  <option value="10">Objetivo 10</option>
+  <option value="11">Objetivo 11</option>
+  <option value="12">Objetivo 12</option>
+  <option value="13">Objetivo 13</option>
+  <option value="14">Objetivo 14</option>
+  <option value="15">Objetivo 15</option>
+  <option value="16">Objetivo 16</option>
+  <option value="17">Objetivo 17</option>
+</select>
+
+
+
+           <br>
+         <class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            <div class="u-align-center u-form-group u-form-submit">
+              <a  class="u-black u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-btn-1">Alta Post</a>
+              <input type="submit"  value="submit" class="u-form-control-hidden">
+            </div>
+          </form>
+        </div>
+      </div>
+</section>
+
+{% else %}
+<section class="u-align-left u-clearfix u-section-9" id="sec-4b9f">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-align-center u-container-style u-grey-5 u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1">Necesita loguearse para publicar en nuestro sitio.&nbsp;</h3>
+            <p class="u-text u-text-2">Para loguearse haga click <a href={% url 'login' %} class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">aquí</a>
+            <p class="u-text u-text-2">Si no tiene cuenta regístrese <a href="#" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">aquí</a>
+            </p>
+          </div>
+        </div>
+      </div>
+           
+                              
+</section>
+
+{% endif %} 
+{% endblock contenido %}

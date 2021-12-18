@@ -25,7 +25,7 @@
               
               <span class="u-meta-date u-meta-icon">{{ posts.fecha_creacion }}</span>
               <span class="u-meta-date u-meta-icon">{{ posts.objetivo }}</span>
-              <span class="u-meta-date u-meta-icon">Creado por <strong>{{ posts.usuario }}</strong></span>
+              <span class="u-meta-date u-meta-icon">Creado por <strong>{{ posts.user }}</strong></span>
               <span class="u-meta-comments u-meta-icon">Comentarios ({{comment}})</span>
 
             </div><!--/blog_post_metadata-->
@@ -42,7 +42,7 @@
 
     
 
-
+{% if user.is_authenticated %}
 
     <section class="u-align-center u-clearfix u-section-14" id="sec-a84e">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -99,6 +99,23 @@
         </div>
       </div>
     </section>
+    {% else %}
+
+    <section class="u-align-left u-clearfix u-section-9" id="sec-4b9f">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-align-center u-container-style u-grey-5 u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1">Necesita loguearse para comentar en nuestro sitio.&nbsp;</h3>
+            <p class="u-text u-text-2">Para loguearse haga click <a href={% url 'login' %} class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">aquí</a>
+            <p class="u-text u-text-2">Si no tiene cuenta regístrese <a href="#" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">aquí</a>
+            </p>
+          </div>
+        </div>
+      </div>
+           
+                              
+</section>
+{%  endif %}
 <section class="u-align-center u-clearfix u-section-15" id="carousel_369e">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
         <div class="u-blog u-pagination-center u-blog-1">

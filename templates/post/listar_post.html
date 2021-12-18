@@ -8,21 +8,21 @@
 
       <section class="u-align-center u-clearfix u-image u-shading u-section-10" src="" data-image-width="1600" data-image-height="800" id="sec-5e29">
       <div class="u-clearfix u-sheet u-sheet-1">
-                                      <div class="u-form u-form-1">
-                                          <form method="get">
-                                              <div id="custom-search-input">
+        <div class="u-form u-form-1">
+            <form method="get">
+                <div id="custom-search-input">
                                                
-                                                  <select id="select-f1e0" name="buscar" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" value = "{{ request.GET.buscar }}">
+                  <select id="select-f1e0" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" value = "{{ request.GET.select }}">
                   <option value="1" name="usuario" >Ordenar por usuario</option>
                   <option value="2"name="fecha">Ordenar por fecha de creación</option>
                   <option value="3"name="comentarios">Ordenar por Comentarios</option>
                 </select>
-                                                  <span class="input-group-list">
-                                                    <i class="icon icon-search"></i>
-                                                    <button type="submit" <a class="u-black u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-btn-1">Filtrar</button>
-        </div>
-      </div>
-    </section>
+                   <span class="input-group-list">
+                    
+                      <button type="submit" <a class="u-black u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-btn-1">Filtrar</button>
+                     </div>
+                   </div>
+                 </section>
 
 {% endblock img %}
 
@@ -66,7 +66,7 @@
                   <!--blog_post_content_content-->{{ post.descripcion }}<!--/blog_post_content_content--></div><!--/blog_post_content--><!--blog_post_metadata-->
 
                 <div class="u-blog-control u-metadata u-metadata-1"><!--blog_post_metadata_date-->
-                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content--> {{ post.fecha_creacion }} Escrito por  <strong>{{post.usuario}}</strong><!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
+                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content--> {{ post.fecha_creacion }} Escrito por  <strong>{{post.user}}</strong><!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
                 </div><!--/blog_post_metadata--><!--blog_post_readmore-->
                 <a href="{% url 'post:detalle' post.pk %}" class="u-black u-blog-control u-border-none u-btn u-button-style u-hover-palette-1-dark-1 u-btn-1"><!--blog_post_readmore_content--><!--options_json--><!--{"content":"Read More"}--><!--/options_json-->Ver más<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
               </div>

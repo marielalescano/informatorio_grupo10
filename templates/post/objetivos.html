@@ -16,11 +16,12 @@
             <h2 class="u-align-left u-text u-text-default u-text-1"> <center>{{ obj.nombre }}</center></h2>
             <p class="u-align-center u-text u-text-2">{{ obj.descripcion }}</p>
             <a href="{% url 'post:listarPostObjetivos' obj.pk %}" class="u-btn u-button-style u-grey-90 u-btn-1">Ver Post</a>
-          </div>
+       
         </div>
-      
+        </div>
+        
             {% endfor %}
-
+ 
     {% else %}
 
       <h2> No existen Objetivos</h2>
@@ -46,20 +47,22 @@
             </tbody>
           </table>
         </div>
+</div>
 
+</section>
           {% if objetivos.has_previous %}
 
-        <a href="?page={{ objetivos.previous_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="u-btn u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-4">&nbsp; &nbsp;〈  Anterior </a>
+        <a style='text-align:right' href="?page={{ objetivos.previous_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="u-btn u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-4">&nbsp; &nbsp;〈  Anterior </a>
         {% endif %}
 
         {% if objetivos.has_next %}
 
-        <a href="?page={{ objetivos.next_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="u-btn u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-5">Siguiente 〉&nbsp; </a>
+        <a style='text-align:left' href="?page={{ objetivos.next_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="u-btn u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-5">Siguiente 〉&nbsp; </a>
         {% endif %}
-      
-    </div>
+     
+    
 
- </section>
+ 
 
 
 {% endblock contenido %}
