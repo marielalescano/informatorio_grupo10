@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h2 class=" my-5">Actualizar post</h2>
+      <form method="POST">
+        {% csrf_token %}
+        <p>¿Estás segura de que quieres actualizarlo?</p>
+        <button type="submit" class="btn btn-danger">Actualizar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock contenido %}

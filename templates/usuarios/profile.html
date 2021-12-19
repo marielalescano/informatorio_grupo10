@@ -1,10 +1,65 @@
 {% extends 'base.html' %}
-
+{%load static %}
 {% block contenido %}
 
-<br>
-<br>
-<br>
+     <section class="u-align-center u-clearfix u-section-6" id="carousel_f63d">
+      <br>
+       <div> <a href="{% url 'post:publicar' %}"> <img src={% static 'img/hoja.png' %} width="20" height="20">&nbsp<strong>Publicar Post</strong></a>&nbsp&nbsp&nbsp
+        <a href="{% url 'usuarios:crearPerfil' %}"> <img src={% static 'img/perfil.png' %} width="20" height="20">&nbsp<strong>Crear Perfil</strong></a>
+        <a href="{% url 'usuarios:actualizarPerfil'  %}"> <img src={% static 'img/perfil.png' %} width="20" height="20">&nbsp<strong>Editar Perfil</strong></a>
+         </div>       
+
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h3 class="u-text u-text-default u-text-1"> &nbsp;Mis Publicaciones<span style="font-weight: 400;"></span>
+ </h3><!--blog--><!--blog_options_json--><!--{"type":"Custom","source":"","tags":"","count":""}--><!--/blog_options_json-->
+        <div class="u-blog u-pagination-center u-blog-1">
+          <div class="u-list-control"></div>
+          <div class="u-repeater u-repeater-1"><!--blog_post-->
+
+          {% if posts %} <!-- vamos a preguntar si existen post-->
+
+                {% for post in posts %} <!-- crea un ciclo para mostrar todos los post-->
+
+
+
+            <div class="u-blog-post u-container-style u-palette-5-light-3 u-repeater-item">
+              <div class="u-container-layout u-similar-container u-valign-bottom-xs u-container-layout-1">
+
+                <a class="u-post-header-link" href="{% url 'post:detalle' post.pk %}">
+                  <!--blog_post_image-->
+                  <img src={{ post.imagen.url }} alt="" class="u-blog-control u-image u-image-default u-image-1">
+                  <!--/blog_post_image-->
+
+                </a><!--blog_post_header-->
+                <h2 class="u-blog-control u-text u-text-2">
+                  <a class="u-post-header-link" href="{% url 'post:detalle' post.pk %}">
+                    <!--blog_post_header_content-->{{ post.titulo }}<!--/blog_post_header_content--></a>
+                </h2><!--/blog_post_header--><!--blog_post_content-->
+                <div class="u-blog-control u-post-content u-text u-text-3">
+                  <!--blog_post_content_content-->{{ post.descripcion }}<!--/blog_post_content_content--></div><!--/blog_post_content--><!--blog_post_metadata-->
+
+                <div class="u-blog-control u-metadata u-metadata-1"><!--blog_post_metadata_date-->
+                  <span class="u-meta-date u-meta-icon">  <strong> <a href="{% url 'post:eliminar_post' post.pk %}">Eliminar Post</a>&nbsp&nbsp&nbsp<a href="{% url 'post:actualizar_post' post.pk %}">Modificar Post</a> </strong></span><!--/blog_post_metadata_date-->
+                </div><!--/blog_post_metadata--><!--blog_post_readmore-->
+                <a href="{% url 'post:detalle' post.pk %}" class="u-black u-blog-control u-border-none u-btn u-button-style u-hover-palette-1-dark-1 u-btn-1"><!--blog_post_readmore_content--><!--options_json--><!--{"content":"Read More"}--><!--/options_json-->Ver más<!--/blog_post_readmore_content--></a><!--/blog_post_readmore-->
+
+
+
+              </div>
+            </div><!--/blog_post--><!--blog_post-->
+
+
+
+                    {% endfor %}
+
+                    {% else %}
+
+                        <h2> No existen Post</h2>
+
+                    {% endif %}
+
+       </div>
+       </section>
 
 
 {% endblock contenido %}

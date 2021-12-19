@@ -9,6 +9,8 @@
 
     <section class="u-align-center u-clearfix u-section-13" id="sec-a038">
       <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1"><!--post_details--><!--post_details_options_json--><!--{"source":""}--><!--/post_details_options_json--><!--blog_post-->
+        
+        
         <div class="u-container-style u-expanded-width u-post-details u-post-details-1">
           <div class="u-container-layout u-container-layout-1"><!--blog_post_image-->
             <img alt="" class="u-blog-control u-expanded-width u-image u-image-default u-image-1" src={{ posts.imagen.url }}><!--/blog_post_image--><!--blog_post_header-->
@@ -26,7 +28,7 @@
               <span class="u-meta-date u-meta-icon">{{ posts.fecha_creacion }}</span>
               <span class="u-meta-date u-meta-icon">{{ posts.objetivo }}</span>
               <span class="u-meta-date u-meta-icon">Creado por <strong>{{ posts.user }}</strong></span>
-              <span class="u-meta-comments u-meta-icon">Comentarios ({{comment}})</span>
+              <span class="u-meta-comments u-meta-icon">Comentarios ({{comentario}})</span>
 
             </div><!--/blog_post_metadata-->
             <p class="u-text u-text-default u-text-grey-40 u-text-2">
@@ -119,23 +121,23 @@
 <section class="u-align-center u-clearfix u-section-15" id="carousel_369e">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
         <div class="u-blog u-pagination-center u-blog-1">
-          {% if comments %}
+          {% if comentarios %}
 
-          {% for comment in comments %}
+          {% for comentario in comentarios %}
 
           <div class="u-repeater u-repeater-1"><!--blog_post-->
             <div class="u-blog-post u-container-style u-repeater-item">
               <div class="u-container-layout u-similar-container u-valign-bottom-xs u-container-layout-1"><!--blog_post_metadata-->
                 <div class="u-blog-control u-metadata u-metadata-1"><!--blog_post_metadata_date-->
-                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->{{comment.fecha}}<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
+                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->{{comentario.fecha}}<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date-->
                 </div><!--/blog_post_metadata-->
                 <a class="u-post-header-link" href="#"><!--blog_post_image-->
-                  <img src={{comment.user.profile.photo.url}} alt="" class="u-blog-control u-image u-image-default u-image-1"><!--/blog_post_image-->
+                  <img src={{comentario.user.profile.photo.url}} alt="" class="u-blog-control u-image u-image-default u-image-1"><!--/blog_post_image-->
                 </a><!--blog_post_header-->
                 <h6 class="u-blog-control u-text u-text-1">
-                  <a class="u-post-header-link" href="blog/enviar-5.html"><!--blog_post_header_content-->{{ comment.user}}<!--/blog_post_header_content--></a>
+                  <a class="u-post-header-link" href="blog/enviar-5.html"><!--blog_post_header_content-->{{ comentario.user}}<!--/blog_post_header_content--></a>
                 </h6><!--/blog_post_header--><!--blog_post_content-->
-                <div class="u-blog-control u-post-content u-text u-text-2"><!--blog_post_content_content-->{{comment.comment}}<!--/blog_post_content_content--></div><!--/blog_post_content-->
+                <div class="u-blog-control u-post-content u-text u-text-2"><!--blog_post_content_content-->{{comentario.comment}}<!--/blog_post_content_content--></div><!--/blog_post_content-->
               </div>
             </div><!--/blog_post--><!--blog_post-->
 

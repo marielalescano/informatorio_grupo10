@@ -12,6 +12,11 @@ class UserRegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2', 'first_name', 'last_name',]
         help_texts = {k:"" for k in fields }
 
+class CrearPerfil(forms.ModelForm):
+
+    class Meta:
+        model = Profile 
+        fields =['website', 'photo']
 
 
 
