@@ -92,7 +92,7 @@ def DetallePost(request, pk): # página para ver post
     posts = Post.objects.get(pk = pk)
     comentarios = Comment.objects.filter(post=pk)
     comentario = comentarios.count()
-
+    
     data = {
         'user':'user.username',
         'post':'posts.pk',
