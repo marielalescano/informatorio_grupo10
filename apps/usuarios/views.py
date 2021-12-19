@@ -17,13 +17,12 @@ def login(request):
 def profile(request):
 
     user_post = Post.objects.filter(user = request.user)
-    profile = Profile.objects.get( user = request.user)
+
     ctx ={
         'posts':user_post,
-        'profile': profile,
     }
 
-    return render(request,'usuarios/profile.html',ctx)
+    return render(request,'usuarios/profile.html', ctx )
 
 
 class CrearPerfil(LoginRequiredMixin, CreateView):

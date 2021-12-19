@@ -6,7 +6,7 @@
       <br>
        <div> <a href="{% url 'post:publicar' %}"> <img src={% static 'img/hoja.png' %} width="20" height="20">&nbsp<strong>Publicar Post</strong></a>&nbsp&nbsp&nbsp
         <a href="{% url 'usuarios:crearPerfil' %}"> <img src={% static 'img/perfil.png' %} width="20" height="20">&nbsp<strong>Crear Perfil</strong></a>
-        <a href="{% url 'usuarios:actualizarPerfil'  %}"> <img src={% static 'img/perfil.png' %} width="20" height="20">&nbsp<strong>Editar Perfil</strong></a>
+        <a href="{% url 'usuarios:actualizarPerfil' user.profile.pk %}"> <img src={% static 'img/perfil.png' %} width="20" height="20">&nbsp<strong>Editar Perfil</strong></a>
          </div>       
 
       <div class="u-clearfix u-sheet u-sheet-1">
