@@ -125,8 +125,8 @@ def DetallePost(request, pk):
 """Con esta función se listan los objetivos como categorías"""
 def objetivos(request):
     
-    objetivos = Objetivo.objects.filter(estado = True)
-    paginator = Paginator(objetivos,3)
+    objetivos = Objetivo.objects.all()
+    paginator = Paginator(objetivos,6)
     page = request.GET.get('page')
     objetivos = paginator.get_page(page)
 
