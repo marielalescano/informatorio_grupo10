@@ -36,6 +36,9 @@
               <span  style="font-weight: 700;">{{likes}}</span> Me gusta
             </p><!--blog_post_content-->
             <div class="u-align-justify u-blog-control u-post-content u-text u-text-3">{{ posts.contenido|safe  }}</div>
+            <br> 
+            <br> 
+            <span class="u-meta-date u-meta-icon">Website del autor: <strong>{{ posts.user.profile.website }}</strong></span>
           </div>
         </div>
       </div>
@@ -147,22 +150,8 @@
 
                         <h2> No existen Comentarios</h2>
 
-                    {% endif %}
-
-            
-          
-          <div class="u-list-control"><!--blog_pagination--><!--blog_pagination_options_json--><!--{"ul":"style=\"\" class=\"responsive-style1 u-pagination u-unstyled\"","li":"style=\"\" class=\"u-nav-item u-pagination-item\"","link":"style=\"padding: 16px 28px;\" class=\"u-button-style u-nav-link\""}--><!--/blog_pagination_options_json-->
-            <ul class="responsive-style1 u-pagination u-unstyled">
-              <li class="disabled prev u-nav-item u-pagination-item">
-                <a class="u-button-style u-nav-link" href="#" style="padding: 16px 28px;">〈</a>
-              </li>
-              
-              <li class="next u-nav-item u-pagination-item">
-                <a class="u-button-style u-nav-link" href="#" style="padding: 16px 28px;">〉</a>
-              </li>
-            </ul><!--/blog_pagination-->
-          </div>
-        </div><!--/blog-->
+                    {% endif %}   
+        </div>
       </div>
     </section>
 

@@ -5,7 +5,7 @@
 
 <br> 
 <br> 
-
+<center>
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
@@ -13,12 +13,17 @@
       <form method="POST">
         {% csrf_token %}
         <p>¿Estás seguro de que quieres eliminarlo?</p>
-        <button type="submit" class="btn btn-danger">Eliminar
+
+      <class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+       <div class="u-align-center u-form-group u-form-submit">
+        <button type="submit" class="u-black u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-btn-1"class="u-form-control-hidden">Eliminar Post
         </button>
+         </div>
       </form>
     </div>
   </div>
 </div>
+</center>
 <br> 
 <br> 
 {% endblock contenido %}

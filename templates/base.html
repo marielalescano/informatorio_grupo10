@@ -11,8 +11,8 @@
     <title>Home</title>
 {% block estilo %}{% endblock estilo %}
 
-    <link rel="stylesheet" href= {% static "css/nicepage.css" %} media="screen">
-    <link rel="stylesheet" href= {% static "css/Home.css" %} media="screen">
+    <link rel="stylesheet" href= {% static "css/nicepage1.css" %} media="screen">
+    <link rel="stylesheet" href= {% static "css/Home1.css" %} media="screen">
     <script class="u-script" type="text/javascript" src= {% static "js/jquery.js" %} defer=""></script>
     <script class="u-script" type="text/javascript" src= {% static "js/nicepage.js" %} defer=""></script>
     <meta name="generator" content="Nicepage 4.1.0, nicepage.com">
@@ -51,8 +51,7 @@
         {% endif %} 
 
 
-        <h3 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-1"><span class="u-icon u-icon-1"><svg class="u-svg-content" viewBox="0 0 57 57" x="0px" y="0px" style="width: 1em; height: 1em;"><g><path style="fill:#424A60;" d="M42.111,8.847c-0.473-0.29-1.087-0.143-1.376,0.327c-0.29,0.471-0.143,1.086,0.327,1.376C48.224,14.96,52.5,22.604,52.5,31c0,2.067-0.271,4.137-0.805,6.152c-0.141,0.533,0.177,1.081,0.711,1.223c0.085,0.022,0.172,0.033,0.256,0.033c0.443,0,0.848-0.296,0.966-0.744C54.207,35.482,54.5,33.24,54.5,31C54.5,21.905,49.869,13.623,42.111,8.847z"></path><path style="fill:#424A60;" d="M37.671,53.182C34.756,54.388,31.671,55,28.5,55c-6.728,0-13.189-2.854-17.728-7.832c-0.372-0.408-1.003-0.437-1.413-0.065c-0.408,0.372-0.437,1.005-0.065,1.413C14.211,53.907,21.211,57,28.5,57c3.435,0,6.778-0.663,9.936-1.971c0.51-0.211,0.753-0.796,0.542-1.307C38.767,53.213,38.181,52.971,37.671,53.182z"></path><path style="fill:#424A60;" d="M22.784,7.687c0.537-0.132,0.865-0.673,0.734-1.209c-0.13-0.536-0.674-0.862-1.208-0.734C11.302,8.434,3.371,17.838,2.573,29.146c-0.039,0.551,0.376,1.029,0.927,1.067c0.024,0.002,0.048,0.003,0.071,0.003c0.521,0,0.959-0.402,0.997-0.93C5.305,18.85,12.625,10.169,22.784,7.687z"></path>
-</g><circle style="fill:#EBBA16;" cx="28.5" cy="6" r="6"></circle><circle style="fill:#7383BF;" cx="6.5" cy="43" r="6"></circle><circle style="fill:#43B05C;" cx="50.5" cy="43" r="6"></circle></svg><img></span>&nbsp;COMUNIDAD
+        <h3 class="u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-1"> <img src= {% static 'img/logo.png'%}  width="55" height= "45" data-href={% url 'home' %}</svg><img></span>&nbsp;ALWA
         </h3>
 
 
@@ -110,17 +109,57 @@
 {% block contenido %}
 
 {% endblock contenido %}
-
+    <footer class="u-clearfix u-footer u-grey-80" id="sec-a5f3"><div class="u-align-left u-clearfix u-sheet u-sheet-1">
+      <br>
+        <center><img src= {% static 'img/logoalwa.fw.png' %}  width="90" height="70">
+        </center>
+        <center> <h2 class="u-text u-text-default u-text-1"><strong>ALWA</strong></h2>
+        </center>
+        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
+          <div class="menu-collapse">
+            <a class="u-button-style u-nav-link" href="#">
+              <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</symbol>
+</defs></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'home' %}">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'post:listar_post' %}">Publicaciones</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'post:objetivos' %}">Objetivos</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'usuarios:registro' %}">Registrarse</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'login' %}">Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'usuarios:profile' %}">Mi perfil</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'post:listar_post' %}">Publicaciones</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'post:objetivos' %}">Objetivos</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'usuarios:registro' %}">Registrarse</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'login' %}">Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'usuarios:profile' %}">Mi perfil</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></footer>
 
     <section class="u-backlink u-clearfix u-grey-80">
       <a class="u-link" href="#" target="_blank">
-        <span>Blog ODS</span>
+        <span>ALWA - Blog sobre los 17 ODS.</span>
       </a>
       <p class="u-text">
         <span>creado por</span>
       </p>
       <a class="u-link" href="#" target="_blank">
-        <span>Grupo 10 Informatorio</span>
+        <span>Grupo 10 Informatorio Comisión 1</span>
       </a>. 
     </section>
   </body>

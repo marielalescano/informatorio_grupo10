@@ -11,38 +11,37 @@
           
                 
 
-<h1 class="u-align-center-xs u-custom-font u-font-lato u-text u-text-black u-text-default u-title u-text-1">Modificar Post</h1>
+<h1 class="u-align-center-xs u-custom-font u-font-lato u-text u-text-black u-text-default u-title u-text-1">Modificar Post {{post.titulo}}</h1>
         <div class="u-form u-form-1">
           <form  method="POST" enctype="multipart/form-data">{% csrf_token %} <class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
-            {% csrf_token %}
              
             <div class="u-form-group u-form-group-1">
+              Título
               <label for="titulo" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Título de Post" id="text-3d10" name="titulo" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+              <input type="text" placeholder="Título de Post" value= "{{post.titulo}}"id="text-3d10" name="titulo" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
             </div>
             <br>
             <div class="u-form-group u-form-name">
+              Descripción
               <label for="descripcion" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Introduzca una breve descripción" id="name-8389" name="descripcion" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+              <input type="text" placeholder="Introduzca una breve descripción" value= "{{post.descripcion}}"  id="name-8389" name="descripcion" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
             </div>
             <br>
-     <div class="u-form-group u-form-name">
-              <label for="contenido" </label>
-            </div>
-            <p><textarea name="contenido" placeholder="Contenido de Post"cols="65" rows="10"></textarea></p>
-
-
+                <div class="u-form-group u-form-name">
+                <label for="contenido" ></label>
+                 <textarea  rows="10" cols="50"  name="contenido" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">{{ post.contenido |safe  }}</textarea>
+                 </div>    
 
             <br>
                  <div class="u-form-group u-form-name">
               <label for="imagen" class="u-form-control-hidden u-label"></label>
-              <input type="file" placeholder="Nombre" id="name-8389" name="imagen" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
+              <input type="file" placeholder="Nombre" id="name-8389" value= "{{post.imagen.url}}" name="imagen" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" >
             </div>
             <br>
 
-<select name="objetivo" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+<select name="objetivo" value= "{{post.objetivo}}" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
   <option value="1">Objetivo 1</option>
-  <option value="2" selected>Objetivo 2</option>
+  <option value="2">Objetivo 2</option>
   <option value="3">Objetivo 3</option>
   <option value="4">Objetivo 4</option>
   <option value="5">Objetivo 5</option>
@@ -59,10 +58,7 @@
   <option value="16">Objetivo 16</option>
   <option value="17">Objetivo 17</option>
 </select>
-
-
-
-           <br>
+          <br>
          <class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
             <div class="u-align-center u-form-group u-form-submit">
               <a  class="u-black u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-dark-1 u-btn-1">Modificar Post</a>

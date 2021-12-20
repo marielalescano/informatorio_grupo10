@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+from django.db.models import Count
 
 # Con esta clase el usuario puede dar de alta un post.
 
@@ -73,14 +73,15 @@ class EliminarPost(LoginRequiredMixin, DeleteView):
 def listar_post(request): 
 
     opcion = request.GET.get('select')
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-fecha_creacion') 
     if opcion == "1":
-        posts = Post.objects.all().order_by('user')
+        posts = Post.objects.all().order_by('objetivo')
     elif opcion == "2":
-        posts=Post.objects.all().order_by('-fecha_creacion') 
-    #elif opcion == "3":
-
-    paginator = Paginator(posts,3)
+        posts=Post.objects.all().order_by('fecha_creacion') 
+    elif opcion == "3":
+        posts = Post.objects.annotate(num_comments=Count('comment')).order_by('-num_comments')
+    
+    paginator = Paginator(posts,5)
     page = request.GET.get('page')
     posts = paginator.get_page(page)  
 
@@ -93,12 +94,12 @@ del post, y se habilita un formulario para comentar"""
 def DetallePost(request, pk): 
 
     posts = Post.objects.get(pk = pk)
-    comentarios = Comment.objects.filter(post=pk)
-    comentario = comentarios.count()
+    lista_comentarios = Comment.objects.filter(post=pk)
+    comentario = lista_comentarios.count()
     
     data = {
-        'user':'user.username',
-        'post':'posts.pk',
+        'user':'user.username', # Aquí se toma el usuario conectado
+        'post':'posts.pk', # Aquí se toma el post al que está comentando
     }
     form = CreateCommentForm(data)
 
@@ -114,7 +115,7 @@ def DetallePost(request, pk):
     
     ctx ={
         'posts':posts,
-        'comentarios':comentarios,
+        'comentarios':lista_comentarios,
         'form':form,
         'comentario':comentario,
         'likes': posts.cantidad_likes(),

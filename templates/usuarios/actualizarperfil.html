@@ -15,7 +15,6 @@
 <h1 class="u-align-center-xs u-custom-font u-font-lato u-text u-text-black u-text-default u-title u-text-1">Perfil de {{ user.username}}</h1>
         <div class="u-form u-form-1">
           <form  method="POST" enctype="multipart/form-data">{% csrf_token %} <class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
-            {% csrf_token %}
              
 
               <div class="u-form-group u-form-group-1">
@@ -23,11 +22,13 @@
               <input type="hidden" value="{{user.username}}" placeholder="" id="text-3d10" name="user" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
             </div>
             <div class="u-form-group u-form-group-1">
+              Ingresá tu website
               <label for="website" class="u-form-control-hidden u-label"></label>
               <input type="text" placeholder="Website" id="text-3d10" name="website" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
             </div>
             <br>
                 <div class="u-form-group u-form-name">
+                  Cargá tu imagen de perfil
               <label for="photo" class="u-form-control-hidden u-label"></label>
               <input type="file" placeholder="Imágen de perfil" id="name-8389" name="photo" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
             </div>

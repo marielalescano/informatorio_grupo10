@@ -70,7 +70,40 @@
 <br>
 <br>
 
- 
+  <section class="u-clearfix u-section-4" id="sec-55b7">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h1 class="u-text u-text-default u-title u-text-1">Post con más likes </h1>
+        <div class="u-layout-horizontal u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+
+          {% if post %} 
+
+                {% for post in post %} 
+
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" src={{ post.imagen.url }}>
+                <h3 class="u-text u-text-default u-text-2">{{post.titulo}}</h3>
+                <p class="u-text u-text-3">{{post.descripcion}}</p>
+                <a href="{% url 'post:detalle' post.pk %}" class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-1">Más</a><p class="u-text u-text-3"></p>
+
+
+
+              </div>
+            </div> 
+
+                {% endfor %}
+
+                    {% else %}
+
+                        <h2> No existen Post</h2>
+
+                    {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </section>
 
 
     <section class="u-clearfix u-section-5" id="carousel_6350">
@@ -85,7 +118,7 @@
                       <div class="u-container-layout u-valign-middle u-container-layout-1" src="">
                         <h2 class="u-custom-font u-font-lato u-text u-text-1"> Objetivo 6: Garantizar la disponibilidad de agua y su gestión sostenible</h2>
                         <p class="u-text u-text-2">Si bien se ha conseguido progresar de manera sustancial a la hora de ampliar el acceso a agua potable y saneamiento, existen miles de millones de personas (principalmente en áreas rurales) que aún carecen de estos servicios básicos.</p>
-                        <a href="#" class="u-active-black u-border-none u-btn u-button-style u-hover-black u-palette-2-base u-btn-1">Más</a>
+                        <a href="/post/listarPostObjetivos/6" class="u-active-black u-border-none u-btn u-button-style u-hover-black u-palette-2-base u-btn-1">Más</a>
                       </div>
                     </div>
                   </div>
@@ -127,11 +160,41 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
+  <section class="u-clearfix u-section-4" id="sec-55b7">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h1 class="u-text u-text-default u-title u-text-1">Últimos Post </h1>
+        <div class="u-layout-horizontal u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+
+          {% if ultimos_post %} 
+
+                {% for post in ultimos_post %} 
+
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="2000" data-image-height="1333" src={{ post.imagen.url }}>
+                <h3 class="u-text u-text-default u-text-2">{{post.titulo}}</h3>
+                <p class="u-text u-text-3">{{post.descripcion}}</p>
+                <a href="{% url 'post:detalle' post.pk %}" class="u-active-none u-border-2 u-border-hover-palette-2-base u-border-palette-2-light-1 u-btn u-button-style u-hover-none u-none u-text-body-color u-btn-1">Más</a><p class="u-text u-text-3"></p>
+
+
+
+              </div>
+            </div> 
+
+      {% endfor %}
+
+        {% else %}
+
+          <h2> No existen Post</h2>
+
+      {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </section>
+
 
 
 

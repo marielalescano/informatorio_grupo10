@@ -8,12 +8,26 @@ from django.urls import reverse_lazy
 from .forms import UserRegisterForm, CrearPerfil
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import PasswordChangeView
+from .forms import PasswordChangedForm
 
 #Utilizamos el login por defecto de django: username y contraseña.
 
 def login(request):
 
     return render(request,'login.html')
+
+# Clase para cambiar contraseña
+
+class PasswordChange (PasswordChangeView):
+    form_class = PasswordChangedForm
+    template_name= 'usuarios/password-change.html'
+    success_url= reverse_lazy ('usuarios:password_success')
+
+def password_success (request):
+    return render (request, 'usuarios/password_success.html')
+
+
 
 
 # Función para mostrar al usuario sus publicaciones (Acceso a crear editar y eliminar)
