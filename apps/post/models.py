@@ -27,7 +27,7 @@ class Post(models.Model):
     imagen=models.ImageField(upload_to = 'imagenes_post', null = True)
     objetivo = models.ForeignKey(Objetivo, on_delete = models.CASCADE, null=False)
     estado = models.BooleanField('Activo/No Activo', default=True)
-    fecha_creacion = models.DateField('Fecha de creación', auto_now=False, auto_now_add=True)
+    fecha_creacion = models.DateField('Fecha de creación', auto_now=True)
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     likes = models.ManyToManyField(User, related_name = 'post_likes')  
 

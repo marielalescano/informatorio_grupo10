@@ -4,14 +4,17 @@
 
      <section class="u-align-center u-clearfix u-section-6" id="carousel_f63d">
       <br>
-       <div> <a href="{% url 'post:publicar' %}"> <img src={% static 'img/hoja.png' %} width="20" height="20">&nbsp<strong>Publicar Post</strong></a>&nbsp&nbsp&nbsp
-        <a href="{% url 'usuarios:crearPerfil' %}"> <img src={% static 'img/perfil.png' %} width="20" height="20">&nbsp<strong>Crear Perfil</strong></a>
+       <div> 
 
-        {% if user.pk in Profile %}
+        <a href="{% url 'post:publicar' %}"> <img src={% static 'img/hoja.png' %} width="20" height="20">&nbsp<strong>Publicar Post</strong></a>&nbsp&nbsp&nbsp
+
+        
+        <a href="{% url 'usuarios:crearPerfil' %}"> <img src={% static 'img/perfil.png' %} width="20" height="20">&nbsp<strong>Crear Perfil</strong></a>
+        {% if  user.profile.pk %}
         <a href="{% url 'usuarios:actualizarPerfil' user.profile.pk %}"> <img src={% static 'img/perfil.png' %} width="20" height="20">&nbsp<strong>Editar Perfil</strong></a>
-         </div>       
-         {%endif%}
+         {% endif %}
          
+
       <div class="u-clearfix u-sheet u-sheet-1">
         <h3 class="u-text u-text-default u-text-1"> &nbsp;Mis Publicaciones<span style="font-weight: 400;"></span>
  </h3><!--blog--><!--blog_options_json--><!--{"type":"Custom","source":"","tags":"","count":""}--><!--/blog_options_json-->

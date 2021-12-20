@@ -12,6 +12,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
+# Con esta clase el usuario puede dar de alta un post.
 
 class AltaPost(LoginRequiredMixin, CreateView):
     model = Post
@@ -29,6 +30,7 @@ class AltaPost(LoginRequiredMixin, CreateView):
         obj.save()
         return super().form_valid(form)
 
+#Con esta clase el usuario puede modificar sus post.
 
 class ActualizarPost(LoginRequiredMixin, UpdateView):
     model = Post
@@ -43,30 +45,30 @@ class ActualizarPost(LoginRequiredMixin, UpdateView):
         return context
 
     def get_success_url(self):
-        messages.success(
-            self.request, 'Tu publicación se ha actualizado correctamente.')
-        return reverse_lazy("home")
+
+        return reverse_lazy("usuarios:profile")
 
     def get_queryset(self):
         return self.model.objects.filter(user=self.request.user)
 
 
 
+#Con esta clase el usuario puede eliminar un post.
 
 class EliminarPost(LoginRequiredMixin, DeleteView):
     model = Post
 
     def get_success_url(self):
-        messages.success(
-            self.request, 'Tu publicación ha sido eliminada con éxito.')
-        return reverse_lazy("home")
+
+        return reverse_lazy("usuarios:profile")
 
     def get_queryset(self):
         return self.model.objects.filter(user=self.request.user)
 
 
-
-
+#Con esta función se listan las publicaciones, primero se listan de forma predeterminada
+#Luego se se recibe una consulta desde la página a la que hace referencia la vista
+#se filtra y se orfena según lo requerido.
 
 def listar_post(request): 
 
@@ -75,10 +77,8 @@ def listar_post(request):
     if opcion == "1":
         posts = Post.objects.all().order_by('user')
     elif opcion == "2":
-        posts=Post.objects.all().order_by('fecha_creacion') 
+        posts=Post.objects.all().order_by('-fecha_creacion') 
     #elif opcion == "3":
-
-
 
     paginator = Paginator(posts,3)
     page = request.GET.get('page')
@@ -86,8 +86,11 @@ def listar_post(request):
 
     return render(request,'post/listar_post.html', {'posts':posts})
 
-    
-def DetallePost(request, pk): # página para ver post
+
+"""Con esta función se muestra el post en particular, se listan los comentarios
+del post, y se habilita un formulario para comentar""" 
+
+def DetallePost(request, pk): 
 
     posts = Post.objects.get(pk = pk)
     comentarios = Comment.objects.filter(post=pk)
@@ -121,7 +124,7 @@ def DetallePost(request, pk): # página para ver post
   
 
 
-
+"""Con esta función se listan los objetivos como categorías"""
 def objetivos(request):
     
     objetivos = Objetivo.objects.filter(estado = True)
@@ -131,8 +134,8 @@ def objetivos(request):
 
     return render(request,'post/objetivos.html',{'objetivos': objetivos})
 
-
-def listarPostObjetivos(request,pk): # página donde se listan los post segun el objetivo selecc.
+# Con esta función se listan los post según el objetivo
+def listarPostObjetivos(request,pk): 
 
     objetivo = Objetivo.objects.get(pk = pk)
     posts = Post.objects.filter( objetivo = objetivo)
@@ -142,6 +145,8 @@ def listarPostObjetivos(request,pk): # página donde se listan los post segun el
 
     return render(request,'post/objetivos_post.html', {'posts': posts})
 
+# Con esta función se establece que un usuario puede dar like a un post, solo una vez
+# si da 2 click la seguna vez elimina el like y necesita estar logueado para hacerlo.
 
 @login_required
 def darlike(request, pk):

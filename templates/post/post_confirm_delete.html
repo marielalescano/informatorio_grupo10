@@ -3,6 +3,8 @@
 
 {% block contenido %}
 
+<br> 
+<br> 
 
 <div class="container">
   <div class="row">
@@ -10,12 +12,13 @@
       <h2 class=" my-5">Eliminar post</h2>
       <form method="POST">
         {% csrf_token %}
-        <p>¿Estás segura de que quieres eliminarlo?</p>
-        <button type="submit" class="btn btn-danger">Enviar
+        <p>¿Estás seguro de que quieres eliminarlo?</p>
+        <button type="submit" class="btn btn-danger">Eliminar
         </button>
       </form>
     </div>
   </div>
 </div>
-
+<br> 
+<br> 
 {% endblock contenido %}
