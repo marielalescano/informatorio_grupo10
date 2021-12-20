@@ -73,17 +73,14 @@ class EliminarPost(LoginRequiredMixin, DeleteView):
 def listar_post(request): 
 
     opcion = request.GET.get('select')
-    posts = Post.objects.all().order_by('-fecha_creacion') 
+    posts = Post.objects.all().order_by('-fecha_creacion')
+
     if opcion == "1":
         posts = Post.objects.all().order_by('objetivo')
     elif opcion == "2":
         posts=Post.objects.all().order_by('fecha_creacion') 
     elif opcion == "3":
         posts = Post.objects.annotate(num_comments=Count('comment')).order_by('-num_comments')
-    
-    paginator = Paginator(posts,6)
-    page = request.GET.get('page')
-    posts = paginator.get_page(page)  
 
     return render(request,'post/listar_post.html', {'posts':posts})
 
