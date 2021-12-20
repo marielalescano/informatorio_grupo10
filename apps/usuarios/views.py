@@ -34,9 +34,7 @@ def password_success (request):
 
 @login_required
 def profile(request):
-
-    user_post = Post.objects.filter(user = request.user)
-    
+    user_post = Post.objects.filter(user = request.user)    
     ctx ={
         'posts':user_post,
     }
@@ -54,7 +52,6 @@ class registro(CreateView):
     success_url = reverse_lazy('login')
 
     def get_success_url(self):
-
         return reverse_lazy("usuarios:profile")
 
     def form_valid(self, form):
@@ -62,24 +59,6 @@ class registro(CreateView):
         obj.user = self.request.user
         obj.save()
         return super().form_valid(form)    
-
-#Clase para crear perfil de usuario, agregar imágen de perfil y website
-
-class CrearPerfil(LoginRequiredMixin, CreateView):
-    model = Profile
-    template_name = 'usuarios/crearperfil.html'
-    form_class = CrearPerfil 
-
-    def get_success_url(self):
-
-        return reverse_lazy("usuarios:profile")
-
-    def form_valid(self, form):
-        obj = form.save(commit=False)
-        obj.user = self.request.user
-        obj.save()
-        return super().form_valid(form)
-
 
 
 # Clase para editar Perfil (cambiar foto de perfil y website)
@@ -97,7 +76,6 @@ class ActualizarPerfil(LoginRequiredMixin, UpdateView):
         return context
 
     def get_success_url(self):
-
         return reverse_lazy("usuarios:profile")
 
     def get_queryset(self):
