@@ -81,7 +81,7 @@ def listar_post(request):
     elif opcion == "3":
         posts = Post.objects.annotate(num_comments=Count('comment')).order_by('-num_comments')
     
-    paginator = Paginator(posts,5)
+    paginator = Paginator(posts,6)
     page = request.GET.get('page')
     posts = paginator.get_page(page)  
 
