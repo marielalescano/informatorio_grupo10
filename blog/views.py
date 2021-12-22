@@ -6,7 +6,6 @@ from django.db.models import Count
 
 def home(request):
 
-    #posts= Post.objects.all().order_by('likes')
     posts= Post.objects.annotate(num_likes=Count('likes')).order_by('-num_likes')
     post = posts[:3]
     ultimos_post= Post.objects.all().order_by('-fecha_creacion')

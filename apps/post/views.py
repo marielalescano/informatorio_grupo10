@@ -15,6 +15,7 @@ from django.db.models import Count
 # Con esta clase el usuario puede dar de alta un post.
 
 class AltaPost(LoginRequiredMixin, CreateView):
+    
     model = Post
     template_name = 'post/publicar.html'
     form_class = AltaPost 
@@ -33,6 +34,7 @@ class AltaPost(LoginRequiredMixin, CreateView):
 #Con esta clase el usuario puede modificar sus post.
 
 class ActualizarPost(LoginRequiredMixin, UpdateView):
+
     model = Post
     template_name = 'post/actualizar.html'
     fields = ["titulo", "descripcion", "contenido", "imagen",'objetivo',] 
@@ -45,7 +47,6 @@ class ActualizarPost(LoginRequiredMixin, UpdateView):
         return context
 
     def get_success_url(self):
-
         return reverse_lazy("usuarios:profile")
 
     def get_queryset(self):
@@ -56,10 +57,10 @@ class ActualizarPost(LoginRequiredMixin, UpdateView):
 #Con esta clase el usuario puede eliminar un post.
 
 class EliminarPost(LoginRequiredMixin, DeleteView):
+
     model = Post
 
     def get_success_url(self):
-
         return reverse_lazy("usuarios:profile")
 
     def get_queryset(self):
@@ -126,13 +127,14 @@ def DetallePost(request, pk):
 def objetivos(request):
     
     objetivos = Objetivo.objects.all()
-    paginator = Paginator(objetivos,6)
+    paginator = Paginator(objetivos,4)
     page = request.GET.get('page')
     objetivos = paginator.get_page(page)
 
     return render(request,'post/objetivos.html',{'objetivos': objetivos})
 
 # Con esta función se listan los post según el objetivo
+
 def listarPostObjetivos(request,pk): 
 
     objetivo = Objetivo.objects.get(pk = pk)

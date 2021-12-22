@@ -5,7 +5,7 @@
 
 {% block contenido %}
 
-{% if objetivos %} <!-- vamos a preguntar si existen post-->
+{% if objetivos %} 
 
   {% for obj in objetivos %}
 
@@ -21,8 +21,8 @@
             </div>
           </div>
         </div>
-       
-            {% endfor %}
+        </section>   
+    {% endfor %}
  
     {% else %}
 
@@ -30,44 +30,32 @@
 
     {% endif %}
 
+<div class="u-blog u-pagination-center u-blog-1">
+
+          <div class="u-list-control">
+            <ul class="responsive-style1 u-pagination u-unstyled">
+
+              {% if objetivos.has_previous %}
+
+              <li class="next u-nav-item u-pagination-item">                
+                <a class="u-button-style u-nav-link" href="?page={{ objetivos.previous_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" style="padding: 16px 28px;">〈 Anterior</a>
+                 {% endif %}
+
+               {% if objetivos.has_next %}
+
+
+              <li class="next u-nav-item u-pagination-item">
+                <a class="u-button-style u-nav-link" href="?page={{ objetivos.next_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" style="padding: 16px 28px;">Siguiente 〉</a>
+                   {% endif %}
+              </li>
+            </ul>
+          </div>
+
 </div>
-<div class="u-list-control">
-            
 
-        <div class="u-align-center u-table u-table-responsive u-table-1">
-          <table class="u-table-entity">
-            <colgroup>
-              <col width="49.9%">
-              <col width="50.1%">
-            </colgroup>
-            <tbody class="u-table-body">
-              <tr style="height: 46px;">
-                <td class="u-table-cell"></td>
-                <td class="u-table-cell"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-</div>
 
-</section>
-    <section class="u-align-center u-clearfix u-section-6" id="carousel_f63d">
-      <div class="u-clearfix u-sheet u-sheet-1">
-     
-
-          {% if objetivos.has_previous %}
-
-        <a style='text-align:right' href="?page={{ objetivos.previous_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="u-btn u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-4">&nbsp; &nbsp;〈  Anterior </a>
-        {% endif %}
-
-        {% if objetivos.has_next %}
-
-        <a style='text-align:left' href="?page={{ objetivos.next_page_number }}{% if request.GET.search %}&q={{ request.GET.search }}{% endif %}" class="u-btn u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-5">Siguiente 〉&nbsp; </a>
-        {% endif %}
-     </div>
-    </section>
-
- 
+ <br> 
+ <br> 
 
 
 {% endblock contenido %}

@@ -20,6 +20,7 @@ def login(request):
 # Clase para cambiar contraseña
 
 class PasswordChange (PasswordChangeView):
+
     form_class = PasswordChangedForm
     template_name= 'usuarios/password-change.html'
     success_url= reverse_lazy ('usuarios:password_success')
@@ -34,6 +35,7 @@ def password_success (request):
 
 @login_required
 def profile(request):
+
     user_post = Post.objects.filter(user = request.user)    
     ctx ={
         'posts':user_post,
@@ -64,6 +66,7 @@ class registro(CreateView):
 # Clase para editar Perfil (cambiar foto de perfil y website)
 
 class ActualizarPerfil(LoginRequiredMixin, UpdateView):
+    
     model = Profile
     template_name = 'usuarios/actualizarperfil.html'
     fields=['website','photo',]
